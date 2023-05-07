@@ -1,0 +1,11 @@
+.item:hover {
+    background-color: #ddd;
+}
+
+.item:hover button {
+    visibility:visible;
+}
+
+.item button {
+    visibility:hidden;
+}

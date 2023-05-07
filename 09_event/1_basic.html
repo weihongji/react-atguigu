@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event & Target</title>
+    <style>
+        * {
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="test"></div>
+
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+    <script src="../js/babel.js"></script>
+
+    <script type="text/babel">
+        class MyComponent extends React.Component {
+            label = React.createRef();
+
+            render() {
+                return (
+                    <div>
+                        <input onBlur={this.showData} type="text" placeholder='失去焦点……' />
+                        <span ref={this.label}></span>
+                    </div>
+                )
+            }
+
+            showData = (e) => {
+                this.label.current.innerHTML = e.target.value;
+            }
+        }
+
+        ReactDOM.render(<MyComponent />, document.getElementById('test'));
+
+        (function () {
+            document.getElementsByTagName("input")[0].focus();
+        })();
+    </script>
+</body>
+</html>

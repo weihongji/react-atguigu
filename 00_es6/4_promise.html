@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6 Syntax - Promise</title>
+</head>
+
+<body>
+    <h1>Promise - View output in console</h1>
+    <script>
+        let p = new Promise((resolve, reject) => {
+            resolve('Good');
+            //reject('Bad');
+        });
+        p.then(value => {
+            console.log('Success 1', value);
+        }).then(value => {
+            console.log('Success 2', value);
+        }).catch(reason => {
+            console.warn('Error Cached:', reason);
+        });
+    </script>
+</body>
+
+</html>

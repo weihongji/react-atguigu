@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6 Syntax - Await</title>
+</head>
+
+<body>
+    <h1>Await</h1>
+    <script>
+        async function main() {
+            let p = new Promise((resolve, reject) => {
+                setInterval(() => {
+                    resolve('OK');
+                    // reject('Failed');
+                }, 2000)
+            });
+            console.log('Wait for 2 seconds...');
+            try {
+                let a = await p;
+                console.log('a:', a);
+            } catch (error) {
+                console.log(error);
+            }
+            console.log('Done');
+        }
+
+        main();
+
+    </script>
+</body>
+
+</html>

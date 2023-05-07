@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6 Syntax - JSON Object</title>
+</head>
+
+<body>
+    <h1>对象相关知识</h1>
+    <script>
+        let a = 'name';
+        let o = {};
+        // To get object like {name: 'Tom'}
+        //o.a = 'Tom'; WRONG!!!
+        o[a] = 'Tom';
+        console.log(o);
+
+        let me = {firstname: 'Jesse', lastname:'Wei'}
+        let {firstname: name} = me; // 解构(destructure)赋值的重命名
+        console.log(name);        
+    </script>
+</body>
+
+</html>

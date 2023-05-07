@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Cycle 1</title>
+</head>
+
+<body>
+    <div id="test"></div>
+
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+    <script src="../js/babel.js"></script>
+
+    <script type="text/babel">
+        class MyComponent extends React.Component {
+            state = {opacity: 1, step: -0.05}
+
+            render() {
+                return (
+                    <div>
+                        <h1 style={{opacity: this.state.opacity}}>看我的透明度！</h1>
+                        <button onClick={this.unmountMe}>Unmount Me</button>
+                    </div>
+                )
+            }
+
+            componentDidMount() {
+                console.log('@componentDidMount');
+
+                this.interval = setInterval(() => {
+                    console.log('opacity');
+                    let {opacity, step} = this.state;
+                    opacity += step;
+                    if (opacity <= 0 || opacity >= 1) {
+                        step = -1 * step;
+                    }
+                    this.setState({opacity, step});
+                }, 100);
+            }
+
+            unmountMe = () => {
+                console.log('UnmountMe is clicked...');
+                ReactDOM.unmountComponentAtNode(document.getElementById('test'));
+            }
+
+            componentWillUnmount() {
+                console.log('@componentWillUnmount');
+                clearInterval(this.interval);
+            }
+        }
+
+        ReactDOM.render(<MyComponent />, document.getElementById('test'));
+    </script>
+</body>
+</html>

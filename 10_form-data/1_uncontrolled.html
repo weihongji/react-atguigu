@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>非受控组件</title>
+    <style>
+        * {
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="test"></div>
+
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+    <script src="../js/babel.js"></script>
+
+    <script type="text/babel">
+        class MyComponent extends React.Component {
+            user = React.createRef();
+            pwd = React.createRef();
+
+            render() {
+                return (
+                    <form onSubmit={this.handleSubmit}>
+                        <input type="text" ref={this.user} placeholder='账号' />
+                        <input type="text" ref={this.pwd} placeholder='密码' />
+                        <button>Submit</button>
+                    </form>
+                )
+            }
+
+            handleSubmit = (e) => {
+                e.preventDefault();
+                const user = this.user.current.value;
+                const pwd = this.pwd.current.value;
+                alert(`User: ${user}, Password: ${pwd}`);
+            }
+        }
+
+        ReactDOM.render(<MyComponent />, document.getElementById('test'));
+
+        (function () {
+            document.getElementsByTagName("input")[0].focus();
+        })();
+    </script>
+</body>
+</html>

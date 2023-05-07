@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>受控组件</title>
+    <style>
+        * {
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="test"></div>
+
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+    <script src="../js/babel.js"></script>
+
+    <script type="text/babel">
+        class MyComponent extends React.Component {
+            state = {
+                user: '',
+                pwd: ''
+            }
+
+            render() {
+                return (
+                    <form onSubmit={this.handleSubmit}>
+                        <input type="text" onChange={this.userChanged} placeholder='账号' />
+                        <input type="text" onChange={this.pwdChanged} placeholder='密码' />
+                        <button>Submit</button>
+                    </form>
+                )
+            }
+
+            userChanged = (e) => {
+                this.setState({user: e.target.value});
+            }
+
+            pwdChanged = (e) => {
+                this.setState({pwd: e.target.value});
+            }
+
+            handleSubmit = (e) => {
+                e.preventDefault();
+                const {user, pwd} = this.state;
+                alert(`User: ${user}, Password: ${pwd}`);
+            }
+        }
+
+        ReactDOM.render(<MyComponent />, document.getElementById('test'));
+
+        (function () {
+            document.getElementsByTagName("input")[0].focus();
+        })();
+    </script>
+</body>
+</html>

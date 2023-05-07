@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6 Syntax - Class</title>
+</head>
+<body>
+    <h1>ES6 Syntax - Class</h1>
+    <script>
+        class Person {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+
+            category = 'human' // field, not variable
+
+            speak() {
+                console.log(`My name is ${this.name}. I'm ${this.age}.`);
+            }
+        }
+
+        let p1 = new Person('Tom', 18);
+        let p2 = new Person('Jerry', 19);
+        console.log(p1);
+        console.log(p2);
+
+        class Student extends Person {
+            constructor(name, age, grade) {
+                super(name, age);
+                this.grade = grade;
+            }
+
+            speak() {
+                super.speak();
+                console.log(`My grade is ${this.grade}.`);
+            }
+
+            showThis() {
+                console.log(this);
+            }
+        }
+
+        let s = new Student('Emily', 15, '高一');
+        console.log(s);
+        s.speak();
+        console.log('---------show-this()-------------');
+        s.showThis();
+        let x = s.showThis;
+        x(); // 类中定义的方法，默认开启了严格模式，所以这里shoThis()中this的值为null而不是window.
+    </script>
+</body>
+</html>

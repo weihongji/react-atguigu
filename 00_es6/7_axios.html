@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axios</title>
+</head>
+
+<body>
+    <h1>Axios</h1>
+    <div>
+        <button onclick="get_onclick()">List</button>
+        <button onclick="get_onclick(1)">GET</button>
+        <button onclick="post_onclick()">POST</button>
+        <button onclick="put_onclick()">PUT</button>
+        <button onclick="delete_onclick()">DELETE</button>
+    </div>
+    <script src="axios.js"></script>
+    <script>
+        function get_onclick(id) {
+            let url = 'http://localhost:3000/people';
+            if (!isNaN(id)) {
+                url = 'http://localhost:3000/people/' + id;
+            }
+            let p = axios({
+                method: 'GET',
+                url: url
+            });
+            p.then(response => {
+                console.log(response.data);
+            })
+        }
+
+        function post_onclick() {
+            let p = axios({
+                method: 'POST',
+                url: 'http://localhost:3000/people',
+                data: {
+                    name: 'Frank'
+                }
+            });
+        }
+
+        function put_onclick(id) {
+            let p = axios({
+                method: 'PUT',
+                url: 'http://localhost:3000/people/' + id,
+                data: {
+                    name: 'New'
+                }
+            });
+        }
+
+        function delete_onclick(id) {
+            let p = axios({
+                method: 'DELETE',
+                url: 'http://localhost:3000/people/' + id
+            });
+        }
+    </script>
+</body>
+
+</html>
