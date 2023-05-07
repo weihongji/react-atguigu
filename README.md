@@ -1,5 +1,8 @@
 # Getting Started with Create React App
 
+尚硅谷React教程（2022加更, 张天禹）
+https://www.bilibili.com/video/BV1wy4y1D7JT/
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
