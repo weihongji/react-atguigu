@@ -18,9 +18,12 @@
         o[a] = 'Tom';
         console.log(o);
 
-        let me = {firstname: 'Jesse', lastname:'Wei'}
-        let {firstname: name} = me; // 解构(destructure)赋值的重命名
-        console.log(name);        
+        let {firstname: name} = {firstname: 'Jesse', lastname:'Wei'}; // 解构(destructure)赋值的重命名
+        console.log(name);
+
+        let [num1, num2] = [100, 101]; //Array
+        console.log(num1, num2);
+        
     </script>
 </body>
 
