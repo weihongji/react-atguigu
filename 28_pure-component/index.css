@@ -1,0 +1,14 @@
+.app {
+    padding: 20px;
+    border: 2 solid black;
+}
+
+.a {
+    padding: 20px;
+    background-color: orange;
+}
+
+.b {
+    padding: 20px;
+    background-color: cyan;
+}
