@@ -49,9 +49,13 @@
         }
         const p = new Person('Emily', 20, '女');
 
-        ReactDOM.render(<MyComponent name='Tom' age={18} sex='男' />, document.getElementById('test1'));
-        ReactDOM.render(<MyComponent name='TBD' age={19} />, document.getElementById('test2'));
-        ReactDOM.render(<MyComponent {...p} />, document.getElementById('test3'));
+        const root1 = ReactDOM.createRoot(document.getElementById('test1'));
+        const root2 = ReactDOM.createRoot(document.getElementById('test2'));
+        const root3 = ReactDOM.createRoot(document.getElementById('test3'));
+
+        root1.render(<MyComponent name='Tom' age={18} sex='男' />);
+        root2.render(<MyComponent name='TBD' age={19} />);
+        root3.render(<MyComponent {...p} />);
     </script>
 </body>
 </html>

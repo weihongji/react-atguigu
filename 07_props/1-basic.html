@@ -27,8 +27,10 @@
                 )
             }
         }
-        ReactDOM.render(<MyComponent name='Tom' age='18' />, document.getElementById('test1'));
-        ReactDOM.render(<MyComponent name='Jerry' age='19' />, document.getElementById('test2'));
+        const root1 = ReactDOM.createRoot(document.getElementById('test1'));
+        root1.render(<MyComponent name='Tom' age='18' />);
+        const root2 = ReactDOM.createRoot(document.getElementById('test2'));
+        root2.render(<MyComponent name='Jerry' age='19' />);
     </script>
 </body>
 </html>

@@ -38,25 +38,27 @@
             }
 
             userChanged = (e) => {
-                this.setState({user: e.target.value});
+                this.setState({ user: e.target.value });
             }
 
             pwdChanged = (e) => {
-                this.setState({pwd: e.target.value});
+                this.setState({ pwd: e.target.value });
             }
 
             handleSubmit = (e) => {
                 e.preventDefault();
-                const {user, pwd} = this.state;
+                const { user, pwd } = this.state;
                 alert(`User: ${user}, Password: ${pwd}`);
+            }
+
+            componentDidMount() {
+                document.getElementsByTagName("input")[0].focus();
             }
         }
 
-        ReactDOM.render(<MyComponent />, document.getElementById('test'));
-
-        (function () {
-            document.getElementsByTagName("input")[0].focus();
-        })();
+        const root = ReactDOM.createRoot(document.getElementById('test'));
+        root.render(<MyComponent />);
     </script>
 </body>
+
 </html>

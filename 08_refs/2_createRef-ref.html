@@ -38,13 +38,14 @@
             showData = () => {
                 this.label.current.innerHTML = this.input.current.value;
             }
+
+            componentDidMount() {
+                this.input.current.focus();
+            }
         }
 
-        ReactDOM.render(<MyComponent />, document.getElementById('test'));
-
-        (function () {
-            document.getElementsByTagName("input")[0].focus();
-        })();
+        const root = ReactDOM.createRoot(document.getElementById('test'));
+        root.render(<MyComponent />);
     </script>
 </body>
 </html>

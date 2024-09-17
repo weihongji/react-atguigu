@@ -22,7 +22,8 @@
                 )
             }
         }
-        ReactDOM.render(<MyComponent/>, document.getElementById('test'));
+        let root = ReactDOM.createRoot(document.getElementById('test'));
+        root.render(<MyComponent/>);
     </script>
 </body>
 </html>

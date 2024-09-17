@@ -46,22 +46,24 @@
 
             fieldChanged = (field) => {
                 return (e) => {
-                    this.setState({[field]: e.target.value});
+                    this.setState({ [field]: e.target.value });
                 };
             }
 
             handleSubmit = (e) => {
                 e.preventDefault();
-                const {user, pwd} = this.state;
+                const { user, pwd } = this.state;
                 alert(`User: ${user}, Password: ${pwd}. (柯里化)`);
+            }
+
+            componentDidMount() {
+                document.getElementsByTagName("input")[0].focus();
             }
         }
 
-        ReactDOM.render(<MyComponent />, document.getElementById('test'));
-
-        (function () {
-            document.getElementsByTagName("input")[0].focus();
-        })();
+        const root = ReactDOM.createRoot(document.getElementById('test'));
+        root.render(<MyComponent />);
     </script>
 </body>
+
 </html>

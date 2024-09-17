@@ -16,7 +16,8 @@
 
     <script type="text/babel">
         let vd = <h1>Hello, Jesse</h1>
-        ReactDOM.render(vd, document.getElementById('test'));
+        const root = ReactDOM.createRoot(document.getElementById('test'));
+        root.render(vd);
     </script>
 </body>
 </html>

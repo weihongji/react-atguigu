@@ -32,7 +32,8 @@
                 this.setState({hot: !this.state.hot});
             }
         }
-        ReactDOM.render(<MyComponent/>, document.getElementById('test'));
+        const root = ReactDOM.createRoot(document.getElementById('test'));
+        root.render(<MyComponent/>);
     </script>
 </body>
 </html>

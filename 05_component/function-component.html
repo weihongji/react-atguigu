@@ -18,7 +18,8 @@
         function Demo() {
             return <h1>函数式组件（简单组件）</h1>
         }
-        ReactDOM.render(<Demo/>, document.getElementById('test'));
+        const root = ReactDOM.createRoot(document.getElementById('test'));
+        root.render(<Demo/>);
     </script>
 </body>
 </html>
